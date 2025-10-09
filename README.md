@@ -1,127 +1,164 @@
-# 🏆 Hackathon de Fraude e Insights Impulsado por IA  
-🚀 **Microsoft Azure Hackathon | IA | Datos | Seguridad | Fabric | OpenAI**  
+# 🧠 README – AI Fabric Hackathon  
 
-## 📖 Descripción General  
-¡Bienvenido al **Hackathon de Fraude e Insights Impulsado por IA**! Este evento está diseñado para que los participantes enfrenten **detección de fraude, insights financieros y automatización** utilizando **Azure AI, Microsoft Fabric y soluciones avanzadas de seguridad**.  
+## 🎯 Objetivos del Hackathon
 
-Este repositorio sirve como una **guía integral** para organizar un **hackathon de alto impacto**—ya seas un experto en Azure, profesional de datos o un tomador de decisiones a nivel C-Level.  
+Al finalizar este hackathon, los participantes serán capaces de:
 
----  
+- Preparar, transformar y enriquecer datos financieros y aseguradores usando **Microsoft Fabric**, aplicando el modelo **medallion** para estructurar capas de valor analítico.  
+- Ingestar datos desde sistemas core, fuentes externas y APIs mediante **pipelines, notebooks y conectores nativos de Fabric**.  
+- Diseñar **modelos semánticos** robustos que faciliten el consumo de datos por analistas, auditores y sistemas de inteligencia.  
+- Monitorear y optimizar el consumo de capacidad en **Fabric**, aplicando métricas clave para gobernanza operativa y eficiencia de recursos.  
+- Construir **agentes de inteligencia artificial** con **AI Foundry** para análisis predictivo, detección de fraude y generación de insights financieros.  
+- Orquestar flujos multi-agente y procesos de datos con **pipelines y triggers**, habilitando automatización inteligente en escenarios bancarios y de seguros.  
+- Aplicar **controles de seguridad y gobernanza** de datos sensibles, configurando roles, permisos y políticas en workspaces de Fabric.  
+- Integrar **Microsoft Purview** para trazabilidad, clasificación y cumplimiento normativo, fortaleciendo la gobernanza de datos en entornos regulados.  
+- Visualizar **insights estratégicos** con **Power BI en Microsoft Fabric**, habilitando tableros interactivos para decisiones basadas en datos.  
 
-## 🗺️ Arquitectura de la Solución  
 
-![alt text](https://github.com/vishnu1411/Microsoft-AIHackathon-Bellevue-Mar25/blob/63e03eb52217c7e8cb99a7a344f794a401128bb4/Architecture/Architecture.jpeg)  
 
----  
+# Agenda
 
-## 🔥 Estructura del Hackathon  
 
-**Cada sección del Hackathon contiene un Reto o un Documento de Solución a completar.** Los instructores pueden organizar el evento según prefieran.  
-Ejemplo:  
+| Día  | Actividad                                                                 | Tipo   |
+|------|---------------------------------------------------------------------------|--------|
+| Día 1 | Preparación de datos (estructuración, limpieza, perfilado)               | Reto   |
+| Día 1 | Ingesta de datos desde fuentes internas y externas                      | Reto   |
+| Día 1 | Transformación de datos con notebooks y pipelines                        | Reto   |
+| Día 1 | Enriquecimiento de datos y creación de modelo semántico                  | Reto   |
+| Día 1 | Fabric Metrics: monitoreo de capacidad, consumo y rendimiento            | Demo   |
+| Día 1 | Round Table: Q&A con expertos y participantes                            | Reto   |
+| Día 1 | Cierre y resumen del día                                                 | Cierre |
+| Día 2 | Construcción de agente AI Foundry para análisis predictivo               | Reto   |
+| Día 2 | Orquestación multi-agente con pipelines y triggers                       | Reto   |
+| Día 2 | Seguridad en Fabric: roles, objetos, workspaces (opcional)               | Reto   |
+| Día 2 | Integración con Microsoft Purview: linaje, clasificación, gobernanza     | Demo   |
+| Día 2 | Sesión de valor: Q&A sobre adopción, impacto y próximos pasos            | Cierre |
+| Día 2 | Cierre y entrega de reconocimientos                                      | Cierre |
 
-| 📅 Día   | 🔹 Actividad                                                   | 🏁 Tipo                 |
-|:--------:|:-------------------------------------------------------------|:------------------------|
-| **Día 1** | Ingesta de Datos en Microsoft Fabric                          | Reto                    |
-| **Día 1** | Extracción de Datos Clave de Documentos (Document Intelligence) | Demostración guiada     |
-| **Día 1** | Analítica de Datos en Microsoft Fabric (Dashboards en Power BI) | Demostración guiada     |
-| **Día 2** | Despliegue de un Chatbot de Insights (Azure OpenAI)            | Demostración guiada     |
-| **Día 2** | Reto de Optimización del Chatbot                               | Reto                    |
-| **Día 2** | Detección de Fraude con Azure AI Foundry                       | Demostración guiada     |
-| **Día 2** | Reto de Optimización del Modelo de Fraude                      | Reto                    |
-| **Día 2** | Seguridad & Cumplimiento (Defender for Cloud)                  | Reto                    |
-| **Día 2** | Presentaciones Finales & Colaboración                          | Colaboración            |  
 
-📌 **Modalidad:** Virtual o Presencial  
-📌 **Duración:** 2 Días  
-📌 **Audiencia Objetivo:** Desarrolladores de IA, Ingenieros de Datos, Arquitectos de Nube, Profesionales de Seguridad, Tomadores de Decisiones C-Level.  
 
----  
 
-## 🎯 **Objetivos del Hackathon**  
 
-### ✅ **Al finalizar este hackathon, los participantes serán capaces de:**  
-- **Desplegar y Configurar** Microsoft Fabric para ingesta de datos en tiempo real.  
-- **Usar Modelos de IA** (OpenAI, Azure AI Services) para detección de fraude.  
-- **Automatizar Procesos de Datos** con Azure Data Factory & Logic Apps.  
-- **Construir Chatbots y Agentes IA** para insights financieros y detección de anomalías.  
-- **Gobernar Operaciones en Azure** con Defender for Cloud.  
-- **Visualizar Insights** usando Power BI en Microsoft Fabric.  
+## 🧩 00 - Parte 1: Cargar archivo CSV en Azure Cosmos DB
 
----  
+### 🚀 Paso 1: Crear la cuenta de Cosmos DB
+1. Ve al **portal de Azure**.  
+2. Crea un recurso → **Azure Cosmos DB for NoSQL**.  
+3. Asigna nombre, grupo de recursos y región.  
+4. Espera a que se aprovisione.  
 
-## 🛠 **Requisitos Previos para los Participantes**  
+### ⚙️ Paso 2: Crear base de datos y contenedor
+1. En tu cuenta de Cosmos DB, ve a **Data Explorer**.  
+2. Crea una nueva **base de datos** (ejemplo: `NombreDeLaBase`) y un **contenedor** (ejemplo: `NombreDelContenedor`).  
+3. Define una **clave de partición** (ejemplo: `/claveParticion`).  
+4. Habilita **TTL** si deseas limpieza automática.  
 
-<<Ya enviados a todos los participantes>>  
----  
+### 💾 Paso 3: Insertar JSON en Cosmos DB
+1. Ve a **Data Explorer → Contenedor → Items → Upload Item**.  
+2. Carga el archivo **JSON** generado.  
+3. Verifica que los documentos estén visibles y bien estructurados.  
 
-## 🌍 **Cómo Organizar tu Propio Hackathon de IA**  
+---
 
-Este repositorio está diseñado como una **guía** para ejecutar un **Hackathon Atractivo** enfocado en **detección de fraude, insights de datos y seguridad en la nube**.  
+## ☁️ 01 - Parte 2: Preparar ingesta a Microsoft Fabric con Data Factory  
 
-💡 **Ya seas un Experto en Azure o un Socio de Microsoft**, puedes usar esta estructura para **dirigir tu propio evento**.  
+### Guía resumida para integrar datos en Microsoft Fabric usando Azure Data Factory  
 
-### **Cómo Usar Este Repositorio para tu Hackathon:**  
-1. **Clona este repositorio** y modifícalo para que encaje con tu evento o ejecútalo tal cual.  
-2. Usa los **ejercicios y retos incluidos** como ruta de aprendizaje estructurada.  
-3. Personaliza los **modelos de IA, datasets o reportes** según los objetivos de tu evento.  
-4. Motiva a los participantes a explorar **Azure AI, Microsoft Fabric y OpenAI** en un **caso de uso real**.  
+### 🔧 Paso 1: Crear instancia de Azure Data Factory
+- Accede al **portal de Azure** y selecciona **Crear un recurso → Data Factory**.  
+- Asigna nombre, grupo de recursos y región.  
 
-📌 **¿Necesitas Ayuda?** Abre un **issue** o contribuye con mejoras a este repo 🚀  
+### 🔗 Paso 2: Crear Linked Services
+- **Cosmos DB:** Crea un Linked Service con la clave de acceso.  
+- **Fabric Lakehouse:** Configura el conector **OneLake** (token de acceso o conexión directa).  
 
----  
+### 🧠 Paso 3: Crear pipeline de ingesta
+1. Crea un **pipeline** en **Data Factory Studio**.  
+2. Añade actividad **Copy Data**:  
+   - **Fuente:** Cosmos DB (selecciona el contenedor).  
+   - **Destino:** Fabric Lakehouse (tabla Bronze).  
+3. Mapea campos y transforma datos según sea necesario.  
 
-## 🚀 **Retos y Ejercicios del Hackathon**  
+### ✅ Paso 4: Ejecutar y validar
+1. Ejecuta el pipeline.  
+2. Verifica que los datos estén en la tabla **Bronze** de Microsoft Fabric.  
+3. Usa **Notebooks Spark** para inspección y transformación adicional.  
 
-### **01 - Ingesta de Datos & Configuración de Microsoft Fabric**  
-**Meta:** Configurar Microsoft Fabric, crear un Lakehouse en OneLake y subir datos de transacciones.  
-- Crear una Capacidad Fabric en Azure  
-- Asignar la Capacidad a Microsoft Fabric  
-- Subir PDFs Financieros a OneLake  
+---
 
-### **02 - Document Intelligence & Procesamiento con IA**  
-**Meta:** Automatizar el procesamiento de documentos con Azure AI Services.  
-- Crear Azure Document Intelligence  
-- Extraer Texto & Datos de Documentos Financieros  
-- Almacenar Datos Procesados en OneLake  
+### ✅ Resultado esperado
+- El archivo CSV se carga como documentos **JSON en Cosmos DB**.  
+- El pipeline **extrae y carga** datos en Microsoft Fabric.  
+- Los datos quedan listos para **transformación en Silver** y **enriquecimiento en Gold**.  
 
-### **03 - Análisis de Fraude con IA**  
-**Meta:** Construir modelos de detección de fraude basados en IA.  
-- Procesar datos con Azure Machine Learning  
-- Entrenar modelos de detección de fraude  
-- Visualizar patrones de fraude en Power BI  
+---
 
-### **04 - Chatbot con Capacidades Multi-Agente**  
-**Meta:** Implementar un chatbot con búsqueda de IA y respuestas basadas en datos.  
-- Desplegar un chatbot con OpenAI & Fabric Data  
-- Habilitar colaboración multi-agente  
-- Probar el chatbot con preguntas financieras reales  
+## 🔄 02 – Transformación y unificación  
 
-### **05 - Seguridad & Cumplimiento con Azure Defender**  
-**Meta:** Asegurar entornos en la nube con Defender for Cloud.  
-- Configurar políticas de seguridad en Azure  
-- Implementar monitoreo & detección de anomalías  
+### 🎯 Objetivo:
+Convertir un archivo **JSON** a **CSV** y unificar ambos conjuntos de datos para análisis y procesamiento posterior.  
 
----  
+### 🧭 Paso a paso
+1. **Usar notebooks Spark** en Fabric para convertir el archivo JSON a formato CSV.  
+   - Abre tu **notebook Spark en Microsoft Fabric**.  
+   - Carga el archivo JSON y utiliza funciones de Spark para transformarlo y exportarlo como CSV.  
 
-## 🎯 **Cómo Empezar**  
+2. **Realizar una unión (join)** de los datasets utilizando el campo **ID de cliente**.  
+   - Importa ambos datasets (el original y el convertido) en el notebook.  
+   - Utiliza el campo **ID de cliente** como clave para realizar la unión y obtener un solo conjunto de datos.  
 
-1. **Haz un fork de este repo** en tu cuenta de GitHub.  
-2. **Completa la guía de requisitos previos.**  
-3. **Sigue los retos paso a paso** para construir tu solución de detección de fraude con IA.  
-4. **Únete a nuestra comunidad** y comparte tu progreso 🚀  
+3. **Guardar el dataset unificado en la capa Silver.**  
+   - Una vez completada la unificación, guarda el resultado en la capa Silver de Fabric para futuras transformaciones y enriquecimiento.  
 
----  
+> Al finalizar estos pasos, tendrás los datos preparados y listos para procesos avanzados en la capa Gold, asegurando **calidad y consistencia en la información**.  
 
-## 📌 **Licencia**  
+---
 
-Este proyecto está bajo licencia **MIT** para el **código** y **CC BY 4.0** para la **documentación**.  
+## 🧹 003 - Reto 3: Limpieza y enriquecimiento  
 
-Puedes **clonar, modificar y compartir** este repositorio para tus propios Hackathons 💡  
+### 🎯 Objetivo:
+Limpiar los datos, enriquecer con nuevas columnas y crear un modelo semántico.  
 
----  
+**Pasos:**
+- Eliminar duplicados.  
+- Normalizar nombres de país.  
+- Calcular métricas:  
+  - Total gastado  
+  - Frecuencia  
+  - País más frecuente  
+- Crear **modelo semántico** en la capa Gold utilizando **Power BI o Semantic Model en Fabric**.  
 
-## 📢 **Contribuye a Este Repositorio**  
+---
 
-- ¿Quieres agregar nuevos retos, mejorar la documentación o sugerir mejoras? **¡Los pull requests son bienvenidos!** 🤝  
+## 🤖 004 - Reto 4: Data Agent en Fabric  
 
-🚀 **¡Construyamos juntos soluciones de detección de fraude impulsadas por IA!** 🎯  
+### 🎯 Objetivo:
+Crear un agente que responda preguntas sobre los datos.  
+
+**Pasos:**
+1. Crear un **Data Agent** en Fabric.  
+2. Conectarlo al **modelo semántico**.  
+3. Probar el funcionamiento realizando preguntas como:  
+   - “¿Cuál es el cliente más frecuente en México?”  
+
+---
+
+## 🧬 005 - Reto 5: Azure AI Foundry + LLMs  
+
+### 🎯 Objetivo:
+Aplicar **IA generativa** sobre datos enriquecidos para extraer valor y generar nuevos conocimientos a partir de la información disponible.  
+
+### 🧩 Subretos:
+
+#### 🧾 Resumen de compras por cliente
+**Prompt:**  
+> “Resume el comportamiento de compra del cliente X.”
+
+#### 🏷️ Clasificación de clientes
+**Prompt:**  
+> “Clasifica este cliente como alto valor, frecuente u ocasional.”
+
+#### 📰 Narrativas automáticas
+**Prompt:**  
+> “Genera un reporte mensual por país con insights narrativos.”
+```markdown
