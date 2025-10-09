@@ -1,4 +1,4 @@
-# 🧠 README – AI Fabric Hackathon  
+# 🧠 AI Fabric Hackathon  
 
 ## 🎯 Objetivos del Hackathon
 
