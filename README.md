@@ -37,7 +37,7 @@ Al finalizar este hackathon, los participantes serán capaces de:
 
 
 # Arquitectura
-![Arquitectura](.\Architecture\Architecture.png)
+![Arquitectura](https://github.com/stmora98/Del_Insight_a_la_Decision/blob/main/Architecture/Architecture.png)
 
 
 ## 🧩 00 - Parte 1: Cargar archivo CSV en Azure Cosmos DB
