@@ -1,0 +1,22 @@
+import json
+import csv
+
+# Ruta de entrada JSON
+json_path = r"C:\Users\msalasrobles\Documents\compras_clientes.json"
+# Ruta de salida CSV
+csv_path = r"C:\Users\msalasrobles\Documents\compras_clientes_convertido.csv"
+
+# Leer JSON
+with open(json_path, encoding='utf-8') as f:
+    data = json.load(f)
+
+# Extraer encabezados desde el primer objeto
+headers = list(data[0].keys())
+
+# Escribir CSV
+with open(csv_path, mode='w', newline='', encoding='utf-8') as f:
+    writer = csv.DictWriter(f, fieldnames=headers)
+    writer.writeheader()
+    writer.writerows(data)
+
+print(f"Archivo CSV generado en: {csv_path}")

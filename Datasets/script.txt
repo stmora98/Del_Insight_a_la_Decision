@@ -1,0 +1,24 @@
+import csv
+import json
+import uuid
+import os
+
+# Ruta del archivo CSV
+csv_path = r"C:\Users\msalasrobles\OneDrive - Microsoft\Clients\LATAM\Eventos\ProyectoFabric\fuentesDeDatos\clientes.csv"
+
+# Ruta de salida para el archivo JSON
+json_path = os.path.splitext(csv_path)[0] + ".json"
+
+# Leer CSV y convertir a lista de diccionarios
+data = []
+with open(csv_path, mode='r', encoding='utf-8') as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        row['id'] = str(uuid.uuid4())  # Cosmos DB requiere un campo 'id' único
+        data.append(row)
+
+# Guardar como JSON
+with open(json_path, mode='w', encoding='utf-8') as json_file:
+    json.dump(data, json_file, indent=2, ensure_ascii=False)
+
+print(f"Archivo JSON generado en: {json_path}")
