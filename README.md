@@ -36,7 +36,8 @@ Al finalizar este hackathon, los participantes serán capaces de:
 | Día 2 | Cierre y entrega de reconocimientos                                      | Cierre |
 
 
-
+# Arquitectura
+![Arquitectura](.\Architecture\Architecture.png)
 
 
 ## 🧩 00 - Parte 1: Cargar archivo CSV en Azure Cosmos DB
