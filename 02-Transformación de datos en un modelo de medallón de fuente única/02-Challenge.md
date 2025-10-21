@@ -1,24 +1,15 @@
-# 🚀 **Reto 2: Transformación y Unificación**
+# Reto 2: Transformación ✨
 
----
+## Guía paso a paso 🧭
 
-## 📘 **Guía paso a paso**
+### Objetivo 🎯
 
----
+El equipo de ingenieros de la empresa Contoso realizará una serie de transformaciones en los datos ingestados a la capa de Bronze que les permitirá llevarlos a un estado optimo de consumo, primero se procederá con la limpieza básica de las tablas y posteriormente se hará una análisis exploratorio de los datos para determinar la calidad de los mismo usando técnicas de ML  
 
-### 🎯 **Objetivo**
+### Pasos a seguir ✅
 
-Convertir un archivo **JSON** a formato **CSV** y unificar ambos conjuntos de datos.
+Se recomienda la utilización de notebooks para realizar las transformaciones  
 
----
+Se recomienda hacer una limpieza preliminar de datos nulos o repetidos  
 
-### 🧩 **Pasos a seguir**
-
-1. 🧠 Usar **notebooks Spark en Microsoft Fabric** para convertir el archivo JSON a formato CSV.  
-2. 🔗 Realizar una **unión (join)** de los datasets utilizando el campo **ID de cliente**.  
-3. 💾 Guardar el **dataset unificado en la capa Silver**.
-
----
-
-✅ **Resultado esperado:**  
-Un archivo unificado en la capa Silver que combine los datos provenientes del archivo JSON y del CSV original, listo para análisis posteriores.
+Guardar en la capa de Silver una vez realizada la limpieza inicial del archivo

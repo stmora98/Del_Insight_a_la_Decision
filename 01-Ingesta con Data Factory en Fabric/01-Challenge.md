@@ -1,33 +1,22 @@
-# 🚀 **Parte 1: Cargar archivo CSV en Azure Cosmos DB**
+# 🚀 Reto 1 – Ingesta de datos desde Cosmos DB a Fabric (Bronze) + limpieza básica
 
----
+## 🧭 Narrativa contextual
+Contos necesita consolidar sus datos operativos en **Microsoft Fabric**.  
+El equipo debe realizar la **ingesta desde Cosmos DB hacia la capa Bronze** y aplicar una **limpieza inicial de datos**.
 
-## 🧭 **Paso 1: Crear la cuenta de Cosmos DB**
+## 🎯 Objetivo del reto
+Ingerir los datos desde **Cosmos DB a Fabric** y aplicar una limpieza básica que incluya:
+- Manejo de valores **nulos o vacíos**  
+- Eliminación de **columnas innecesarias**  
+- Normalización de **formatos básicos (fechas, texto, etc.)**
 
-1. Ve al **portal de Azure**.  
-2. Crea un recurso → **Azure Cosmos DB for NoSQL**.  
-3. Asigna **nombre**, **grupo de recursos** y **región**.  
-4. Espera a que se **aprovisione** correctamente.
+## ⚙️ Pasos sugeridos
+1. **Crear un pipeline de ingesta** desde Cosmos DB hacia el Lakehouse Bronze.  
+2. **Validar la carga de datos** y revisar la estructura resultante.  
+3. Utilizar **notebooks** o **Dataflow Gen2** para realizar:
+   - Eliminación de columnas irrelevantes  
+   - Reemplazo o eliminación de valores nulos  
+   - Normalización de formatos (fechas, texto, etc.)  
+4. **Guardar la tabla limpia** en la capa **Bronze**.  
 
----
-
-## 🗃️ **Paso 2: Crear base de datos y contenedor**
-
-1. En tu cuenta de **Cosmos DB**, ve a **Data Explorer**.  
-2. Crea una **nueva base de datos** (ejemplo: `NombreDeLaBase`) y un **contenedor** (ejemplo: `NombreDelContenedor`).  
-3. Define una **clave de partición** (ejemplo: `/claveParticion`).  
-4. Habilita **TTL** si deseas limpieza automática de datos.
-
----
-
-## 💾 **Paso 3: Insertar JSON en Cosmos DB**
-
-1. Ve a **Data Explorer → Contenedor → Items → Upload Item**.  
-2. Carga el **archivo JSON generado**.  
-3. Verifica que los **documentos estén visibles y bien estructurados**.
-
----
-
-## ✅ **Resultado esperado**
-
-Los datos del archivo CSV se encuentran correctamente cargados y estructurados en Azure Cosmos DB, listos para consultas y análisis posteriores.
+*Consejo:* asegúrate de documentar los pasos realizados y tomar capturas del resultado para evidenciar la transformación de los datos.
