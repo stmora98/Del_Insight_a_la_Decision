@@ -23,9 +23,9 @@ Al completar este reto podrás:
 💡 *¿Por qué?* Cosmos DB nos servira como la fuente de los datos que seran ingestados desde Fabric 
 
 1️⃣ Ingresa al portal de **Microsoft Azure** y crea una base de datos Cosmos DB para no SQL. 
-🔹 Asigna un nombre descriptivo (por ejemplo, `ContosoData-Source`).  
-🔹 Crea el contenedor y asigna un nombre identificable. 
-🔹 Sube el dataset en formato JSON
+- 🔹 Asigna un nombre descriptivo (por ejemplo, `ContosoData-Source`).  
+- 🔹 Crea el contenedor y asigna un nombre identificable. 
+- 🔹 Sube el dataset en formato JSON
 
 ✅ **Resultado esperado:** Tienes un Cosmos DB con un contenedor con la informacion lista para ser ingestada desde Fabric.
 
@@ -33,8 +33,8 @@ Al completar este reto podrás:
 💡 *¿Por qué?* El workspace es el entorno centralizado donde se gestionan datasets, dataflows, pipelines y notebooks.  
 
 1️⃣ Ingresa a **Microsoft Fabric** y crea un nuevo workspace para el proyecto de Contoso.  
-🔹 Asigna un nombre descriptivo (por ejemplo, `ContosoData-Fabric`).  
-🔹 Asegúrate de que esté asignado a una **Fabric Capacity** (si ya la tienes configurada, puedes omitir este paso).  
+-🔹 Asigna un nombre descriptivo (por ejemplo, `ContosoData-Fabric`).  
+-🔹 Asegúrate de que esté asignado a una **Fabric Capacity** (si ya la tienes configurada, puedes omitir este paso).  
 
 ✅ **Resultado esperado:** Tienes un workspace dedicado para todos los recursos de Fabric.  
 
@@ -44,8 +44,8 @@ Al completar este reto podrás:
 💡 *¿Por qué?* Establecer esta conexión permite que Fabric acceda e ingiera directamente los datos JSON desde Cosmos DB.  
 
 1️⃣ En tu workspace de Fabric, crea una nueva **conexión de datos** hacia **Azure Cosmos DB**.  
-🔹 Proporciona el **endpoint** y la **clave de acceso** correctos.  
-🔹 Verifica que los permisos estén configurados adecuadamente.  
+-🔹 Proporciona el **endpoint** y la **clave de acceso** correctos.  
+-🔹 Verifica que los permisos estén configurados adecuadamente.  
 
 ✅ **Resultado esperado:** Tu workspace está conectado a Cosmos DB y listo para la ingesta de datos.  
 
