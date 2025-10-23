@@ -1,4 +1,4 @@
-🏆 Reto 1: Ingesta de Datos desde Cosmos DB a Microsoft Fabric (Capa Bronze) + Limpieza Básica  
+# 🏆 Reto 1: Ingesta de Datos desde Cosmos DB a Microsoft Fabric (Capa Bronze) + Limpieza Básica  
 
 📖 Escenario  
 Contoso necesita consolidar sus **datos operativos** en **Microsoft Fabric**.  
