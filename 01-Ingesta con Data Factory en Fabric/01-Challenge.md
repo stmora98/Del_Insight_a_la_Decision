@@ -68,7 +68,7 @@ Al completar este reto podrás:
 ## 📝 Documentación  
 
 
-- 📄 [Creacion Dataflow Gen2] (https://learn.microsoft.com/es-mx/fabric/data-factory/create-first-dataflow-gen2)
+- 📄 [Creacion Dataflow Gen2](https://learn.microsoft.com/es-mx/fabric/data-factory/create-first-dataflow-gen2)
 
 
 
