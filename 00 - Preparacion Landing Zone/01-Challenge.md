@@ -79,7 +79,12 @@ Al completar este reto podrás:
 💡 **Próximos Pasos:**  
 Con la **zona de aterrizaje configurada**, estás listo para avanzar al siguiente reto, donde comenzarás con la **ingesta, limpieza y transformación de datos** dentro de Fabric. 🚀  
 
+-- 
 
+**Documentacion**
+[Creacion Cosmos DB](https://learn.microsoft.com/es-es/azure/cosmos-db/nosql/quickstart-portal)
+[Creacion Fabric workspace](https://learn.microsoft.com/es-es/fabric/data-warehouse/tutorial-create-workspace)
+[Creacion Fabric lakehouse](https://learn.microsoft.com/es-es/fabric/data-engineering/tutorial-build-lakehouse)
 
 
 
