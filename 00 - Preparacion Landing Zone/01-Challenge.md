@@ -1,4 +1,4 @@
-#🏆 Reto 0: Configuración de la Zona de Aterrizaje y Preparación de Datos en Microsoft Fabric  
+# 🏆 Reto 0: Configuración de la Zona de Aterrizaje y Preparación de Datos en Microsoft Fabric  
 📖 Escenario  
 Contoso Retail ha cargado dos conjuntos de datos en formato **JSON**:  
 - Uno **financiero**, con información de **score crediticio**.  
