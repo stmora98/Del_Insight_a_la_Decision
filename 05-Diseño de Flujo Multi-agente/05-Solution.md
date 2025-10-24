@@ -118,6 +118,59 @@ Genera un reporte narrativo mensual por país. Datos:
 - Prompts reutilizables y adaptables para otros casos de negocio.  
 - Base sólida para extender hacia recomendaciones, predicciones o generación de contenido personalizado.
 
+---
+
+
+
+
+
+
+
+# Solución Reto 05 — Diseño y Orquestación de Flujo Multi-agente
+
+Objetivo
+- Diseñar un flujo multi-agente (ingesta, análisis y decisión) con contratos de mensajes, manejo de errores y métricas de validación.
+
+Requisitos previos
+- Definición de fuentes de datos y esquema de mensajes.
+
+## Pasos
+
+### 1 — Definir roles y contratos
+
+1. Documenta 3 agentes con entradas/salidas:
+   - Ingesta: recibe raw, publica `NEW`.
+   - Análisis: consume `NEW` → `SCORED`.
+   - Decisión/Ejecución: consume `SCORED` → `EXECUTED`.
+2. Define el contrato de mensajes (headers: `correlationId`, `timestamp`; payload: entidad/atributos; status).
+
+### 2 — Diseñar el flujo y condiciones
+
+1. Bosqueja el flujo: Ingesta → Análisis → Decisión.
+2. Añade ramificaciones condicionales (p. ej., enrich si faltan datos, DLQ en errores irreparables).
+
+### 3 — Implementar resiliencia
+
+1. Estrategias:
+   - Retries exponenciales para fallos transitorios.
+   - Dead-letter queue para mensajes no procesables.
+   - Timeouts y circuit-breakers.
+
+### 4 — Simular y validar
+
+1. Genera datos sintéticos que reproduzcan volúmenes y variabilidad.
+2. Ejecuta simulaciones midiendo tiempo E2E (P50/P90), throughput y tasa de errores.
+
+### 5 — Métricas y mejora continua
+
+1. Exporta métricas a un tablero: latencia, errores, reintentos, éxito.
+2. Define umbrales y runbooks para la operación.
+
+## Documentación final
+- Diagrama de flujo con IDs y condiciones.
+- Contratos de mensajes versionados.
+- Resultados de simulación y tablero de métricas.
+
 
 
 
