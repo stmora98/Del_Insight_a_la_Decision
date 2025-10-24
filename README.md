@@ -40,126 +40,161 @@ Al finalizar este hackathon, los participantes serán capaces de:
 ![Arquitectura](https://github.com/stmora98/Del_Insight_a_la_Decision/blob/main/Architecture/Architecture.png)
 
 
-## 🧩 00 - Parte 1: Cargar archivo CSV en Azure Cosmos DB
-
-### 🚀 Paso 1: Crear la cuenta de Cosmos DB
-1. Ve al **portal de Azure**.  
-2. Crea un recurso → **Azure Cosmos DB for NoSQL**.  
-3. Asigna nombre, grupo de recursos y región.  
-4. Espera a que se aprovisione.  
-
-### ⚙️ Paso 2: Crear base de datos y contenedor
-1. En tu cuenta de Cosmos DB, ve a **Data Explorer**.  
-2. Crea una nueva **base de datos** (ejemplo: `NombreDeLaBase`) y un **contenedor** (ejemplo: `NombreDelContenedor`).  
-3. Define una **clave de partición** (ejemplo: `/claveParticion`).  
-4. Habilita **TTL** si deseas limpieza automática.  
-
-### 💾 Paso 3: Insertar JSON en Cosmos DB
-1. Ve a **Data Explorer → Contenedor → Items → Upload Item**.  
-2. Carga el archivo **JSON** generado.  
-3. Verifica que los documentos estén visibles y bien estructurados.  
-
+# 📖 Historia de Caso de Uso
+ 
+## "Contoso y la Inteligencia de Datos Multisectorial en Acción"
+ 
+**Contoso**, una organización con presencia en los sectores **financiero y comercial**, enfrenta el reto de consolidar información proveniente de múltiples fuentes para habilitar análisis confiables, automatización inteligente y experiencias conversacionales basadas en datos. En el marco de este hackathon, los participantes asumen el rol de **equipo técnico** encargado de construir una solución moderna sobre **Microsoft Fabric**, poniendo a prueba sus habilidades en un entorno realista y multisectorial.
+ 
+### 🗃️ Fuentes de Datos
+El escenario comienza con dos conjuntos de datos en formato **JSON**, ambos ingeridos desde **Cosmos DB**:
+ 
+• **Set de score crediticio:** información de clientes, comportamiento de pago y perfil financiero  
+• **Set de productos retail:** datos sobre disponibilidad, valor comercial, categoría y marca  
+ 
+### 🎯 Objetivo Principal
+Transformar, limpiar y estructurar ambos datasets en un **modelo enriquecido** que sirva como base para la creación de **agentes de inteligencia artificial**. Para ello, los participantes aplicarán el **modelo medallion** (Bronze → Silver → Gold), asegurando la calidad, trazabilidad y valor analítico de la información.
+ 
+### 📊 Modelo Semántico y Métricas Clave
+Una vez estructurados los datos en la **capa Gold**, se diseñará un **modelo semántico en Power BI**, que permitirá correlacionar métricas clave como:
+ 
+• Score promedio por segmento  
+• Valor comercial por categoría  
+• Tasa de devolución por marca  
+• Tendencias mensuales de riesgo o ventas  
+ 
+### 🤖 Agentes Conversacionales
+Utilizando **AI Foundry**, los participantes crearán **agentes** capaces de interactuar con los datos mediante **lenguaje natural**, sin mostrar código técnico, resolviendo desafíos de automatización y orquestando flujos multi-agente con **modelos de lenguaje de gran escala (LLMs)**. Estos agentes estarán conectados a los modelos semánticos mediante **Data Agents**, permitiendo consultas conversacionales como:
+ 
+• *"¿Qué segmento tiene mayor score promedio?"*  
+• *"¿Qué productos tienen mayor tasa de devolución?"*  
+• *"¿Hay relación entre score y monto de compra?"*  
+ 
+### 📈 Visualización e Insights
+Finalmente, los **insights generados** se visualizarán en **tableros interactivos en Power BI**, facilitando la toma de decisiones basada en datos tanto para **analistas financieros** como **comerciales**. Este caso ejemplifica una adopción realista y escalable de **Microsoft Fabric** en entornos híbridos, donde la **inteligencia de datos** se convierte en una ventaja competitiva para Contoso, impulsando la innovación, la eficiencia operativa y la democratización del análisis.
+ 
 ---
-
-## ☁️ 01 - Parte 2: Preparar ingesta a Microsoft Fabric con Data Factory  
-
-### Guía resumida para integrar datos en Microsoft Fabric usando Azure Data Factory  
-
-### 🔧 Paso 1: Crear instancia de Azure Data Factory
-- Accede al **portal de Azure** y selecciona **Crear un recurso → Data Factory**.  
-- Asigna nombre, grupo de recursos y región.  
-
-### 🔗 Paso 2: Crear Linked Services
-- **Cosmos DB:** Crea un Linked Service con la clave de acceso.  
-- **Fabric Lakehouse:** Configura el conector **OneLake** (token de acceso o conexión directa).  
-
-### 🧠 Paso 3: Crear pipeline de ingesta
-1. Crea un **pipeline** en **Data Factory Studio**.  
-2. Añade actividad **Copy Data**:  
-   - **Fuente:** Cosmos DB (selecciona el contenedor).  
-   - **Destino:** Fabric Lakehouse (tabla Bronze).  
-3. Mapea campos y transforma datos según sea necesario.  
-
-### ✅ Paso 4: Ejecutar y validar
-1. Ejecuta el pipeline.  
-2. Verifica que los datos estén en la tabla **Bronze** de Microsoft Fabric.  
-3. Usa **Notebooks Spark** para inspección y transformación adicional.  
-
+ 
+# 🎯 Resumen de Retos - Del Insight a la Decisión
+ 
+## 🏆 Reto 00: Configuración de Zona de Aterrizaje y Preparación de Datos
+ 
+**📖 Escenario:** Contoso debe preparar el entorno de trabajo en Microsoft Fabric, conectando datos almacenados en Azure Cosmos DB y estableciendo una zona de aterrizaje estructurada en capas.
+ 
+### 🎯 Objetivos Clave:
+- ✅ Crear Azure Cosmos DB NoSQL y cargar datasets JSON (financiero y retail)
+- ✅ Configurar workspace en Microsoft Fabric con estructura de capas
+- ✅ Establecer conexión entre Cosmos DB y Fabric
+- ✅ Crear Lakehouse con arquitectura medallion (Bronze, Silver, Gold)
+- ✅ Explorar y validar estructura de datos JSON
+ 
+### 🚀 Entregables:
+- Cosmos DB configurado con contenedores de datos
+- Workspace de Fabric con Lakehouse estructurado por capas
+- Documentación del flujo de datos planificado
+ 
 ---
-
-### ✅ Resultado esperado
-- El archivo CSV se carga como documentos **JSON en Cosmos DB**.  
-- El pipeline **extrae y carga** datos en Microsoft Fabric.  
-- Los datos quedan listos para **transformación en Silver** y **enriquecimiento en Gold**.  
-
+ 
+## 🏆 Reto 01: Ingesta de Datos desde Cosmos DB a Microsoft Fabric (Capa Bronze)
+ 
+**📖 Escenario:** Consolidar datos operativos de Contoso en Microsoft Fabric mediante ingesta desde Azure Cosmos DB hacia la capa Bronze, aplicando limpieza básica.
+ 
+### 🎯 Objetivos Clave:
+- ✅ Implementar ingesta con Dataflows Gen2 desde Cosmos DB
+- ✅ Aplicar limpieza básica (valores nulos, columnas innecesarias, normalización)
+- ✅ Validar carga y estructura de datos en capa Bronze
+- ✅ Preparar datos para transformaciones avanzadas
+ 
+### 🚀 Entregables:
+- Dataflow Gen2 funcional con transformaciones básicas
+- Tabla Bronze con datos limpios y estructurados
+- Validación de integridad de datos ingeridos
+ 
 ---
-
-## 🔄 02 – Transformación y unificación  
-
-### 🎯 Objetivo:
-Convertir un archivo **JSON** a **CSV** y unificar ambos conjuntos de datos para análisis y procesamiento posterior.  
-
-### 🧭 Paso a paso
-1. **Usar notebooks Spark** en Fabric para convertir el archivo JSON a formato CSV.  
-   - Abre tu **notebook Spark en Microsoft Fabric**.  
-   - Carga el archivo JSON y utiliza funciones de Spark para transformarlo y exportarlo como CSV.  
-
-2. **Realizar una unión (join)** de los datasets utilizando el campo **ID de cliente**.  
-   - Importa ambos datasets (el original y el convertido) en el notebook.  
-   - Utiliza el campo **ID de cliente** como clave para realizar la unión y obtener un solo conjunto de datos.  
-
-3. **Guardar el dataset unificado en la capa Silver.**  
-   - Una vez completada la unificación, guarda el resultado en la capa Silver de Fabric para futuras transformaciones y enriquecimiento.  
-
-> Al finalizar estos pasos, tendrás los datos preparados y listos para procesos avanzados en la capa Gold, asegurando **calidad y consistencia en la información**.  
-
+ 
+## 🏆 Reto 02: Transformación Intermedia y Análisis Exploratorio (Capa Silver)
+ 
+**📖 Escenario:** Evaluar calidad de datos y crear versión intermedia optimizada en capa Silver, aplicando transformaciones avanzadas y análisis exploratorio con Machine Learning.
+ 
+### 🎯 Objetivos Clave:
+- ✅ Crear tabla Silver con transformaciones intermedias
+- ✅ Aplicar agrupaciones y métricas analíticas (score crediticio por cliente, perfiles de producto)
+- ✅ Implementar análisis exploratorio con K-Means clustering
+- ✅ Preparar datos para modelado semántico en Gold
+ 
+### 🚀 Entregables:
+- Tabla Silver con transformaciones y métricas de negocio
+- Análisis de clustering con insights de segmentación
+- Datos optimizados listos para capa Gold
+ 
 ---
-
-## 🧹 003 - Reto 3: Limpieza y enriquecimiento  
-
-### 🎯 Objetivo:
-Limpiar los datos, enriquecer con nuevas columnas y crear un modelo semántico.  
-
-**Pasos:**
-- Eliminar duplicados.  
-- Normalizar nombres de país.  
-- Calcular métricas:  
-  - Total gastado  
-  - Frecuencia  
-  - País más frecuente  
-- Crear **modelo semántico** en la capa Gold utilizando **Power BI o Semantic Model en Fabric**.  
-
+ 
+## 🏆 Reto 03: Modelo Semántico, Data Agent y Dashboard de Valor (Capa Gold)
+ 
+**📖 Escenario:** Habilitar análisis de negocio mediante modelo semántico robusto, Data Agent conversacional y dashboard interactivo para responder preguntas clave del negocio.
+ 
+### 🎯 Objetivos Clave:
+- ✅ Diseñar modelo semántico Gold con medidas y dimensiones relevantes
+- ✅ Crear Data Agent conectado al modelo semántico
+- ✅ Desarrollar dashboard Power BI con visualizaciones de valor
+- ✅ Validar respuestas a preguntas de negocio mediante Copilot
+ 
+### 🚀 Entregables:
+- Modelo semántico con medidas clave (valor_comercial_total, productos_disponibles)
+- Data Agent funcional para consultas en lenguaje natural
+- Dashboard Power BI publicado con métricas estratégicas
+ 
 ---
-
-## 🤖 004 - Reto 4: Data Agent en Fabric  
-
-### 🎯 Objetivo:
-Crear un agente que responda preguntas sobre los datos.  
-
-**Pasos:**
-1. Crear un **Data Agent** en Fabric.  
-2. Conectarlo al **modelo semántico**.  
-3. Probar el funcionamiento realizando preguntas como:  
-   - “¿Cuál es el cliente más frecuente en México?”  
-
+ 
+## 🏆 Reto 04: Creación de Agente Conversacional en AI Foundry
+ 
+**📖 Escenario:** Permitir que analistas interactúen con datos usando lenguaje natural, creando un agente en Azure AI Foundry integrado con el modelo semántico de Fabric.
+ 
+### 🎯 Objetivos Clave:
+- ✅ Diseñar agente conversacional en AI Foundry integrado con Fabric
+- ✅ Conectar agente al Data Agent asociado al modelo semántico Gold
+- ✅ Configurar intents y prompts orientados a preguntas reales de negocio
+- ✅ Validar respuestas en lenguaje natural sin código técnico
+- ✅ Publicar agente para uso de analistas
+ 
+### 🚀 Entregables:
+- Agente conversacional funcional en AI Foundry
+- Configuración de intents para preguntas de negocio frecuentes
+- Integración completa con modelo semántico de Fabric
+- Validación de respuestas en lenguaje natural
+ 
 ---
-
-## 🧬 005 - Reto 5: Azure AI Foundry + LLMs  
-
-### 🎯 Objetivo:
-Aplicar **IA generativa** sobre datos enriquecidos para extraer valor y generar nuevos conocimientos a partir de la información disponible.  
-
-### 🧩 Subretos:
-
-#### 🧾 Resumen de compras por cliente
-**Prompt:**  
-> “Resume el comportamiento de compra del cliente X.”
-
-#### 🏷️ Clasificación de clientes
-**Prompt:**  
-> “Clasifica este cliente como alto valor, frecuente u ocasional.”
-
-#### 📰 Narrativas automáticas
-**Prompt:**  
-> “Genera un reporte mensual por país con insights narrativos.”
-```markdown
+ 
+## 🏆 Reto 05: Orquestación Multi-agente y Flujos Colaborativos
+ 
+**📖 Escenario:** Diseñar y documentar un flujo multi-agente que coordine ingesta, análisis y ejecución para automatizar tareas complejas y adaptarse dinámicamente a escenarios cambiantes.
+ 
+### 🎯 Objetivos Clave:
+- ✅ Definir tres agentes especializados (Ingesta, Análisis/Evaluación, Decisión/Ejecución)
+- ✅ Diseñar flujo orquestado con retroalimentación y manejo de errores
+- ✅ Implementar contratos de mensajes y esquemas de datos
+- ✅ Simular escenarios de negocio y validar métricas de eficacia
+- ✅ Documentar diseño para replicabilidad y escalabilidad
+ 
+### 🚀 Entregables:
+- Arquitectura de tres agentes con roles definidos
+- Flujo orquestado con condiciones y retroalimentación
+- Simulación de escenarios con métricas de rendimiento
+- Documentación completa del diseño multi-agente
+ 
+---
+ 
+## 📚 Recursos y Documentación
+ 
+### 🔗 Enlaces de Referencia:
+- [Documentación Microsoft Fabric](https://learn.microsoft.com/es-es/fabric/)
+- [Azure AI Foundry](https://learn.microsoft.com/es-es/azure/ai-foundry/)
+- [Power BI Embedded](https://learn.microsoft.com/es-es/power-bi/)
+- [Azure Cosmos DB](https://learn.microsoft.com/es-es/azure/cosmos-db/)
+ 
+### 🎯 Próximos Pasos:
+Con estos retos completados, habrás construido una solución completa que va **del insight a la decisión**, implementando:
+- ✅ Pipeline de datos completo con arquitectura medallion
+- ✅ Modelo semántico robusto para análisis de negocio
+- ✅ Agentes conversacionales para democratización de datos
+- ✅ Orquestación inteligente para automatización de procesos
