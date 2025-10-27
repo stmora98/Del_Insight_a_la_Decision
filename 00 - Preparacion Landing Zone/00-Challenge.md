@@ -83,8 +83,10 @@ Con la **zona de aterrizaje configurada**, estás listo para avanzar al siguient
 
 **📄 Documentacion**
 - [Creacion Cosmos DB](https://learn.microsoft.com/es-es/azure/cosmos-db/nosql/quickstart-portal)
+- [Permitir IP publica en Firewall](https://learn.microsoft.com/en-us/azure/devops/organizations/security/allow-list-ip-url?view=azure-devops&tabs=IP-V4)
 - [Creacion Fabric workspace](https://learn.microsoft.com/es-es/fabric/data-warehouse/tutorial-create-workspace)
 - [Creacion Fabric lakehouse](https://learn.microsoft.com/es-es/fabric/data-engineering/tutorial-build-lakehouse)
+- [Crear Pipeline](https://learn.microsoft.com/es-mx/fabric/data-factory/create-first-pipeline-with-sample-data)
 
 
 
