@@ -23,8 +23,16 @@ Resultado esperado
 1. Accede al portal de Azure.
 2. Busca **Azure Cosmos DB** → Crear → seleccionar API **NoSQL**.
 3. Rellena: resource group, account name (`contoso-cosmosdb`), region.
+	![Crear Cosmos](https://github.com/stmora98/Del_Insight_a_la_Decision/blob/main/00%20-%20Preparacion%20Landing%20Zone/Reference%20Pictures/Creando%20Cosmos%20-%20Basics.png)
+
+	![Review](https://github.com/stmora98/Del_Insight_a_la_Decision/blob/main/00%20-%20Preparacion%20Landing%20Zone/Reference%20Pictures/Creando%20Cosmos%20-%20Review.png)
 4. Crear la cuenta. En *Data Explorer* crea la base de datos y contenedores (por ejemplo `sales`, `credit`).
+  	![Data Explorer](https://github.com/stmora98/Del_Insight_a_la_Decision/blob/main/00%20-%20Preparacion%20Landing%20Zone/Reference%20Pictures/2%20-Data%20Explorer.png)
+   
+   	![New item](https://github.com/stmora98/Del_Insight_a_la_Decision/blob/main/00%20-%20Preparacion%20Landing%20Zone/Reference%20Pictures/2%20-Upload%20Item.png)
+
 5. Carga los archivos JSON (manualmente desde Data Explorer o usando Azure Data Factory para cargas repetibles).
+   	![Upload Jason](https://github.com/stmora98/Del_Insight_a_la_Decision/blob/main/00%20-%20Preparacion%20Landing%20Zone/Reference%20Pictures/2%20-Upload%20json.png)
 
 Verificación
 - En *Data Explorer* se ven documentos JSON en el contenedor.
@@ -56,33 +64,23 @@ Verificación
 
 ## 4. Conectar Fabric a Azure Cosmos DB
 
-1. En Fabric Data → New → Connection → Azure Cosmos DB.
-2. Proporciona endpoint y clave (Azure Portal → Cosmos DB → Keys).
-3. Testea y guarda la conexión.
+1. Crear nuevo item.
+2. En Fabric DataFlow gen 2 → New → Connection → Azure Cosmos DB.  
+	![Crear Conexion](https://github.com/stmora98/Del_Insight_a_la_Decision/blob/main/00%20-%20Preparacion%20Landing%20Zone/Reference%20Pictures/Crear%20Dataflow%201.png)
+
+	![Buscar conector Cosmos](https://github.com/stmora98/Del_Insight_a_la_Decision/blob/main/00%20-%20Preparacion%20Landing%20Zone/Reference%20Pictures/Crear%20Dataflow%202.png)
+
+	![Buscar Conector 2](https://github.com/stmora98/Del_Insight_a_la_Decision/blob/main/00%20-%20Preparacion%20Landing%20Zone/Reference%20Pictures/Crear%20Dataflow%203.png)
+
+4. Proporciona endpoint y clave (Azure Portal → Cosmos DB → Keys).
+	![Conectar cosmos](https://github.com/stmora98/Del_Insight_a_la_Decision/blob/main/00%20-%20Preparacion%20Landing%20Zone/Reference%20Pictures/Connect%20Data%20source.png)
+
+5. Testea y guarda la conexión.
 
 Verificación
 - La conexión se prueba y puedes ver containers/collections disponibles.
 
 ---
 
-## 5. Ingesta inicial a Bronze
 
-Opción rápida (portal):
-1. Desde la conexión, selecciona el contenedor y elige *Ingest* hacia `Contoso_Lakehouse` → `bronze`.
 
-Opción reproducible (recomendada):
-1. Crear un Dataflow Gen2 o pipeline en Fabric/Data Factory que lea Cosmos DB y escriba en la Lakehouse Bronze.
-
-Verificación
-- La tabla o archivos aparecen en `bronze` con registros esperados.
-
----
-
-## 6. Documentación y evidencias
-
-1. Documento con nombres de recursos y convenciones (NO incluir claves en repositorio).
-2. Capturas: Data Explorer (Cosmos), conexión en Fabric, contenido en Bronze.
-
----
-
-Si confirmas, procedo a crear las guías en formato `.md` para los retos 01–06 y las guardo en sus carpetas respectivas.
