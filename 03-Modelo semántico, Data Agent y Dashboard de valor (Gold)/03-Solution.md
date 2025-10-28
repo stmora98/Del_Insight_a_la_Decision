@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Solución Reto 03 — Modelo Semántico, Data Agent y Dashboard de Valor (Capa Gold)
 
 ## Objetivo
