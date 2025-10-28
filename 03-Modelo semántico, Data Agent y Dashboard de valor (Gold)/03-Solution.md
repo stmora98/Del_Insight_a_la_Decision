@@ -14,6 +14,104 @@ Construir un ecosistema analítico completo en Microsoft Fabric que permita:
 
 ## 1. Preparar tablas Gold y relaciones
 
+## Score Crediticio
+```python 
+
+
+from pyspark.sql.functions import col
+from pyspark.ml.feature import VectorAssembler
+from pyspark.ml.clustering import KMeans
+
+# Cargar tabla Silver (ya limpia desde Dataflow)
+df_fin = spark.read.table("silver_financiero")
+
+# Transformación intermedia: normalizar score
+score_min = df_fin.agg({"score": "min"}).collect()[0][0]
+score_max = df_fin.agg({"score": "max"}).collect()[0][0]
+df_fin = df_fin.withColumn("score_normalizado", (col("score") - score_min) / (score_max - score_min))
+
+# ML: clustering por score normalizado
+features_fin = VectorAssembler(inputCols=["score_normalizado"], outputCol="features")
+df_fin_vec = features_fin.transform(df_fin)
+
+kmeans = KMeans(k=3, seed=42)
+model_fin = kmeans.fit(df_fin_vec)
+df_fin_clustered = model_fin.transform(df_fin_vec)
+
+# Selección: clientes del cluster con score más alto
+top_cluster = df_fin_clustered.groupBy("prediction").avg("score_normalizado").orderBy("avg(score_normalizado)", ascending=False).first()[0]
+df_gold_fin = df_fin_clustered.filter(col("prediction") == top_cluster)
+
+# Guardar en Gold
+df_gold_fin.write.mode("overwrite").saveAsTable("gold_financiero")
+
+
+```
+
+## Retail 
+
+```python 
+# Segmentación ML + Promoción a Gold (Retail por producto)
+
+# 📌 Importar funciones necesarias
+from pyspark.sql.functions import col, when, udf
+from pyspark.sql.types import StringType
+from pyspark.ml.feature import VectorAssembler
+from pyspark.ml.clustering import KMeans
+
+# 🟦 1. Cargar tabla Silver con catálogo de productos retail
+df_retail = spark.read.table("productos_silver")
+
+# 🧮 2. Derivar columna valor_comercial = Price × Stock
+df_retail = df_retail.withColumn("valor_comercial", col("Price") * col("Stock"))
+
+# 🧮 3. Derivar columna disponibilidad_binaria
+df_retail = df_retail.withColumn("disponible",
+    when(col("Availability") == "InStock", 1).otherwise(0)
+)
+
+# 🧹 4. Filtrar registros válidos para clustering
+df_retail_clean = df_retail.filter(
+    col("valor_comercial").isNotNull() & col("disponible").isNotNull()
+)
+
+# 📊 5. Vectorizar columnas para ML
+assembler = VectorAssembler(inputCols=["valor_comercial", "disponible"], outputCol="features")
+df_retail_vec = assembler.transform(df_retail_clean)
+
+# 🤖 6. Aplicar KMeans clustering para segmentar productos
+kmeans = KMeans(k=3, seed=42)
+model_retail = kmeans.fit(df_retail_vec)
+df_retail_clustered = model_retail.transform(df_retail_vec)
+
+# 🏷️ 7. Etiquetar productos según valor comercial promedio por cluster
+cluster_scores = df_retail_clustered.groupBy("prediction") \
+    .avg("valor_comercial") \
+    .orderBy("avg(valor_comercial)", ascending=False) \
+    .collect()
+
+# Crear mapa de etiquetas: Valioso, Medio, Bajo
+cluster_map = {}
+for i, row in enumerate(cluster_scores):
+    cluster_map[row["prediction"]] = ["Valioso", "Medio", "Bajo"][i]
+
+# UDF para asignar etiqueta
+def map_cluster(pred):
+    return cluster_map.get(pred, "Desconocido")
+
+map_udf = udf(map_cluster, StringType())
+df_segmentado = df_retail_clustered.withColumn("perfil_producto", map_udf(col("prediction")))
+
+# 🔍 8. Conteo por perfil (opcional para validación)
+df_segmentado.groupBy("perfil_producto").count().orderBy("count", ascending=False).show()
+
+# 🥇 9. Filtrar productos valiosos y disponibles
+df_gold_retail = df_segmentado.filter((col("perfil_producto") == "Valioso") & (col("disponible") == 1))
+
+# 💾 10. Guardar tabla Gold con productos valiosos
+df_gold_retail.write.option("mergeSchema", "true").mode("overwrite").saveAsTable("productos_gold")
+```
+
 ### 1.1 Crear tablas dimensionales
 ```sql
 -- En Fabric Lakehouse, crear vista Gold de productos
@@ -137,7 +235,6 @@ Expected: Agregación de Score_Promedio por segmento_score
 
 ### **Objetivo 🎯**
 Crear un **modelo semántico**, un **Data Agent** y un **dashboard** sencillo en **Power BI**.
->>>>>>> e3c1b9f78fc1ff44f852e87700b22964c406fab8
 
 ### 4.1 Diseño de páginas
 1. **Overview Financiero**
@@ -293,4 +390,3 @@ Prueba estas preguntas en **Copilot** o **Power BI** para validar el modelo:
 
 - Publica el dashboard en el **workspace correspondiente**.  
 - Asegúrate de que el **Data Agent** esté activo para responder preguntas desde **Copilot** o **Power BI**.  
->>>>>>> e3c1b9f78fc1ff44f852e87700b22964c406fab8
